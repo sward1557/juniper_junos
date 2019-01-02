@@ -20,30 +20,29 @@
         content: "{{ item }}"
       register: ip
 
-    - name: match ospf area
-      pattern_match:
-        regex: "(\\w+)"
-        content: "{{ item }}"
-      register: area
-
-    - name: match ospf interface
-      pattern_match:
-        regex: "ge-|st0(\\S+)"
-        content: "{{ item }}"
-      register: interface
-
-    - name: match ospf state
-      pattern_match:
-        regex: "(Full|Two-way|Init|Exstart|Exchange|Loading|Down)"
-        content: "{{ item }}"
-      register: state
-
-    - name: match ospf up/down time
-      pattern_match:
-        regex: "((Up|Down) \\S+ \\d*:\\d*:\\d*)"
-        content: "{{ item }}"
-      register: time
-
+    # - name: match ospf area
+    #   pattern_match:
+    #     regex: "(\\w+)"
+    #     content: "{{ item }}"
+    #   register: area
+    #
+    # - name: match ospf interface
+    #    regex: "ge-|st0(\\S+)"
+    #     content: "{{ item }}"
+    #   register: interface
+    #
+    # - name: match ospf state
+    #   pattern_match:
+    #     regex: "(Full|Two-way|Init|Exstart|Exchange|Loading|Down)"
+    #     content: "{{ item }}"
+    #   register: state
+    #
+    # - name: match ospf up/down time
+    #   pattern_match:
+    #     regex: "((Up|Down) \\S+ \\d*:\\d*:\\d*)"
+    #     content: "{{ item }}"
+    #   register: time
+    #
   loop: "{{ context }}"
   register: values
 
