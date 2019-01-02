@@ -7,7 +7,7 @@
 
 - name: match sections
   pattern_match:
-    regex: "(^\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\b)"
+    regex: "(^\b(?:[0-9]{1,3}\\.){3}[0-9]{1,3}\b)"
     match_all: yes
     match_greedy: yes
   register: context
@@ -16,13 +16,13 @@
   pattern_group:
     - name: match name
       pattern_match:
-        regex: "(^\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\b)"
+        regex: "(^\b(?:[0-9]{1,3}\\.){3}[0-9]{1,3}\b)"
         content: "{{ item }}"
       register: ip
 
     - name: match ospf area
       pattern_match:
-        regex: "Area (\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\b)"
+        regex: "Area (\b(?:[0-9]{1,3}\\.){3}[0-9]{1,3}\b)"
         content: "{{ item }}"
       register: area
 
