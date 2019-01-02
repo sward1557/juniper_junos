@@ -8,8 +8,8 @@
 - name: match sections
   pattern_match:
     regex: "(?:\b((?:[0-9]{1,3}\\.){3}[0-9]{1,3}) *\b(?:[a-z]))"
-    match_all: yes
-    match_greedy: yes
+    match_all: no
+    match_greedy: no
   register: context
 
 - name: match neighbor ip values
